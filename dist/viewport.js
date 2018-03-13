@@ -74,6 +74,7 @@ var Viewport = function (_PIXI$Container) {
         _this.forceHitArea = options.forceHitArea;
         _this.threshold = exists(options.threshold) ? options.threshold : 5;
         _this.listeners(options.divWheel || document.body);
+        _this.divWheel = options.divWheel || document.body;
 
         /**
          * active touch point ids on the viewport
