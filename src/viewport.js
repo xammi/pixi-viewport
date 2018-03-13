@@ -60,6 +60,7 @@ class Viewport extends PIXI.Container
         this.forceHitArea = options.forceHitArea
         this.threshold = exists(options.threshold) ? options.threshold : 5
         this.listeners(options.divWheel || document.body)
+        this.divWheel = options.divWheel || document.body;
 
         /**
          * active touch point ids on the viewport
