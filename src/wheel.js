@@ -19,6 +19,7 @@ module.exports = class Wheel extends Plugin
         this.percent = options.percent || 0.1
         this.center = options.center
         this.reverse = options.reverse
+        this.shift = $(parent.divWheel).offset()
     }
 
     wheel(e)
@@ -37,7 +38,7 @@ module.exports = class Wheel extends Plugin
         {
             change = e.deltaY > 0 ? 1 - this.percent : 1 + this.percent
         }
-        let point = { x: e.clientX, y: e.clientY }
+        let point = { x: e.clientX - this.shift.left, y: e.clientY - this.shift.top }
         let oldPoint
         if (!this.center)
         {
