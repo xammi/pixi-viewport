@@ -32,6 +32,7 @@ module.exports = function (_Plugin) {
         _this.percent = options.percent || 0.1;
         _this.center = options.center;
         _this.reverse = options.reverse;
+        _this.shift = $(parent.divWheel).offset();
         return _this;
     }
 
@@ -48,7 +49,7 @@ module.exports = function (_Plugin) {
             } else {
                 change = e.deltaY > 0 ? 1 - this.percent : 1 + this.percent;
             }
-            var point = { x: e.clientX, y: e.clientY };
+            var point = { x: e.clientX - this.shift.left, y: e.clientY - this.shift.top };
             var oldPoint = void 0;
             if (!this.center) {
                 oldPoint = this.parent.toLocal(point);
